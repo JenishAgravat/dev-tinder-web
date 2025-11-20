@@ -1,30 +1,25 @@
-import { useState } from "react";
-import axios from "axios";
-import { useDispatch } from "react-redux";
-import { addUser } from "../utils/userSlice";
-import { BASE_URL } from "../utils/constant";
-
-const Login=()=>{
-    const[emailId,setEmailId]=useState("");
-    const[password,setPassword]=useState("");
-    const dispatch=useDispatch();
-
-    const handleLogin=async()=>{
-        try{
-            const res=await axios.post(BASE_URL+"/login",{emailId,password},{withCredentials:true})
-            dispatch(addUser(res.data));
-        }catch(err){
-            console.error(err)
-        }
-    }
-
-    return(
-        <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-pink-500 via-red-500 to-orange-400 p-4">
+const Signup = () => {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-pink-500 via-red-500 to-orange-400 p-4">
       <div className="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl w-full max-w-md p-8 text-center text-white">
         <h1 className="text-4xl font-bold mb-2 tracking-wide">🔥 DevTinder</h1>
         <p className="text-pink-100 mb-8">Connect with awesome developers 💻❤️</p>
 
         <form className="space-y-5">
+            <div>
+            <input
+              type="string"
+              placeholder="First Name"
+              className="w-full p-3 rounded-xl bg-white/20 placeholder-white/70 text-white outline-none focus:ring-2 focus:ring-pink-300"
+            />
+          </div>
+          <div>
+            <input
+              type="string"
+              placeholder="Last Name"
+              className="w-full p-3 rounded-xl bg-white/20 placeholder-white/70 text-white outline-none focus:ring-2 focus:ring-pink-300"
+            />
+          </div>
           <div>
             <input
               type="email"
@@ -43,21 +38,13 @@ const Login=()=>{
             type="submit"
             className="w-full bg-white text-pink-600 font-semibold py-3 rounded-xl hover:bg-pink-100 transition-all duration-200"
           >
-            Login
+            SignUp
           </button>
         </form>
 
-        <div className="mt-6 flex flex-col gap-2 text-sm">
-          <a href="#" className="text-white/80 hover:text-white">
-            Forgot Password?
-          </a>
-          <a href="#" className="text-white/80 hover:text-white">
-            Create a new account
-          </a>
-        </div>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default Signup;
