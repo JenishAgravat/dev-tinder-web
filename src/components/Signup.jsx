@@ -1,8 +1,11 @@
+import { Link } from "react-router-dom";
+
 const Signup = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-pink-500 via-red-500 to-orange-400 p-4">
       <div className="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl w-full max-w-md p-8 text-center text-white">
-        <h1 className="text-4xl font-bold mb-2 tracking-wide">🔥 DevTinder</h1>
+         <h1 className="text-4xl font-bold mb-2 tracking-wide"><span className="text-[#e2e1e1]">&lt;Dev</span><span className="text-[#1f1e1e]">Tinder</span>
+        <span className="text-[#f4edee]">&gt;</span></h1>
         <p className="text-pink-100 mb-8">Connect with awesome developers 💻❤️</p>
 
         <form className="space-y-5">
@@ -41,6 +44,11 @@ const Signup = () => {
             SignUp
           </button>
         </form>
+        <div className="mt-6 flex flex-col gap-2 text-sm">
+           <Link to={"/Login"} className="text-white/80 hover:text-white">
+              Already Have An Account
+            </Link>
+        </div>
 
       </div>
     </div>
